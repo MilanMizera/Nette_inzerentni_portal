@@ -14,7 +14,7 @@ class LoginPresenter extends Nette\Application\UI\Presenter
 		$form = new Form;
 		$form->addText('name', 'Jméno:');
 		$form->addPassword('password', 'Heslo:');
-		$form->addSubmit('send', 'Registrovat');
+		$form->addSubmit('send', 'Přihlásit se');
 		$form->onSuccess[] = [$this, 'formSucceeded'];
 		return $form;
 	}
@@ -24,7 +24,7 @@ class LoginPresenter extends Nette\Application\UI\Presenter
 		// tady zpracujeme data odeslaná formulářem
 		// $data->name obsahuje jméno
 		// $data->password obsahuje heslo
-		$this->flashMessage('Byl jste úspěšně registrován.');
-		$this->redirect('Home:');
+		$this->flashMessage('Byl jste úspěšně přihlášen.');
+		$this->redirect('Home:default');
 	}
 }
