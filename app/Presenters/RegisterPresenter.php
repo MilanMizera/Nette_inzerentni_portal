@@ -16,7 +16,7 @@ class RegisterPresenter extends Nette\Application\UI\Presenter
 	) {
 	}
 
-	
+
 
 	protected function createComponentRegistrationForm(): Form
 	{
@@ -31,14 +31,21 @@ class RegisterPresenter extends Nette\Application\UI\Presenter
 			->setRequired('Zadejte prosím email');
 
 		$form->addPassword('password', 'Heslo:')
-			->setRequired('Zadejte prosím heslo');
+			->setRequired('Zadejte prosím heslo')
+			->addRule($form::MinLength, 'Heslo musí mít alespoň %d znaků', 8)
+			->addRule($form::Pattern, ' Heslo musí obsahovat číslici', '.*[0-9].*')
+			->addRule($form::Pattern, 'Heslo musí obsahovat velké písmeno', '.*[A-Z].*');
+
+
+
+
 
 		$sex = [
 			'm' => 'muž',
 			'f' => 'žena',
 		];
 		$form->addRadioList('gender', 'Pohlaví:', $sex)
-		->setRequired('Zadejte prosím pohlaví');
+			->setRequired('Zadejte prosím pohlaví');
 
 		$form->addDate('birthdays', 'Narozen:')
 			->setRequired('Zadejte prosím datum narození');
@@ -69,6 +76,8 @@ class RegisterPresenter extends Nette\Application\UI\Presenter
 			'password' => $hashed_password,
 			'gender' => $data->gender,
 			'birthdays' => $data->birthdays,
+			'role' => "uživatel",
+
 
 		]);
 

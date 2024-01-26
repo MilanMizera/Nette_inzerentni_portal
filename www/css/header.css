@@ -1,0 +1,47 @@
+#header_ul {
+
+    display: flex !important;
+    justify-content: center !important;
+    margin: auto;
+
+}
+
+#public_header {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(87, 68, 250);
+    padding-bottom: 30px;
+    padding-top: 30px;
+
+}
+
+#header_wrapper {
+
+    width: 60%;
+
+}
+
+#header_containerfluid {
+
+    margin-right: 60px;
+    margin-left: 60px;
+
+}
+
+#public_header_nav_item {
+
+    margin-right: 20px;
+    text-decoration: underline #ffc107 2px;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+
+}
+
+#public_header_nav_item:hover {
+
+    transition: 3s;
+    text-decoration: dotted;
+
+}
