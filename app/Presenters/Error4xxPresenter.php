@@ -30,5 +30,7 @@ final class Error4xxPresenter extends Nette\Application\UI\Presenter
 			: __DIR__ . '/templates/Error/4xx.latte';
 		$this->template->httpCode = $code;
 		$this->template->setFile($file);
+	
+		
 	}
 }

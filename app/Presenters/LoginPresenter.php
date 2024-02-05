@@ -19,6 +19,33 @@ class LoginPresenter extends Nette\Application\UI\Presenter
 	}
 
 
+	public function actionSignIn()
+	{
+
+		$this->setLayout('private.user.layout');
+
+	}
+
+
+
+	public function actionDashboard()
+	{
+
+
+
+	}
+
+	public function SignOut()
+	{
+
+
+
+
+	}
+
+
+
+
 	protected function createComponentLoginForm(): Form
 	{
 		$form = new Form;
@@ -35,7 +62,17 @@ class LoginPresenter extends Nette\Application\UI\Presenter
 		// $data->name obsahuje jméno
 		// $data->password obsahuje heslo
 
-		$this->myAuthenticator->authenticate($data->email, $data->password);
+
+		try {
+
+			$this->getUser()->login($data->email, $data->password);
+
+		} catch (Nette\Security\AuthenticationException $e) {
+
+            $this->flashMessage('Neplatné přihlašovací údaje', 'danger');
+			$this->redirect('Login:login');
+
+		}
 
 
 

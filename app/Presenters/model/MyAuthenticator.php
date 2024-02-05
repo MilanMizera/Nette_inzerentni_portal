@@ -15,22 +15,22 @@ class MyAuthenticator implements Nette\Security\Authenticator
 
 	public function authenticate(string $email, string $password): SimpleIdentity
 	{
-		$row = $this->database->table('users')
+		$user = $this->database->table('users')
 			->where('email', $email)
 			->fetch();
 
-		if (!$row) {
+		if ($user === null) {
 			throw new Nette\Security\AuthenticationException('Uživatelská data neexistují.');
 		}
 
-		if (!$this->passwords->verify($password, $row->password)) {
+		if ($this->passwords->verify($password, $user->password) === false) {
 			throw new Nette\Security\AuthenticationException('Neplatné heslo.');
 		}
 
 		return new SimpleIdentity(
-			$row->id,
-			//$row->role, // nebo pole více rolí
-			['name' => $row->name],
+			$user->id,
+			$user->role, // nebo pole více rolí
+			['name' => $user->name],
 		);
 	}
 }
