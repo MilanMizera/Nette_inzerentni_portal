@@ -22,6 +22,9 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
   rel="stylesheet"
 />
+<!-- Bootstrap icons-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
   <link rel="stylesheet" href="{$basePath}/css/style.css">
 	<link rel="stylesheet" href="{$basePath}/css/default.css">
   <link rel="stylesheet" href="{$basePath}/css/registerForm.css">
@@ -55,11 +58,26 @@
           <a id ="public_header_nav_item" class="nav-link" n:href="Blog:blog">blog</a>
         </li>
       </ul>
+      {if $user->isLoggedIn()}
+      <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Nastavení<i class="bi bi-person-circle" id="private_persone_icon"></i>
+  </button>
+  <ul class="dropdown-menu">
+    <li><button class="dropdown-item" type="button">Osobní údaje</button></li>
+    <li><button class="dropdown-item" type="button">Vzor životopisů</button></li>
+    <li><button class="dropdown-item" type="button">Změna hesla</button></li>
+  </ul>
+</div>
+{/if}
       <span class="navbar-text">
-    
-        <a class="btn btn-warning" n:href="Login:login">Přihlásit</a>
-
+        {if $user->isLoggedIn()}
+          <a class="btn btn-warning" n:href="Login:signOut">Odhlásit</a>
+        {else}
+          <a class="btn btn-warning" n:href="Login:login">Přihlásit</a>
+        {/if}
       </span>
+      
     </div>
   </div>
 </nav>
@@ -71,6 +89,10 @@
 	{block scripts}
 	<script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>
 	{/block}
+
+
+
+  
 
 
 <!-- Footer -->

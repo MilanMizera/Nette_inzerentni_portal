@@ -45,3 +45,11 @@
     text-decoration: dotted;
 
 }
+
+ #private_persone_icon::before {
+
+
+
+    font-size: 80px;
+    color: blueviolet;
+}

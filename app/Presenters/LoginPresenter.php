@@ -19,29 +19,22 @@ class LoginPresenter extends Nette\Application\UI\Presenter
 	}
 
 
-	public function actionSignIn()
+	
+
+	public function actionSignOut()
 	{
 
-		$this->setLayout('private.user.layout');
+		$this->getUser()->logout();
+		$this->flashMessage('Odhlášení proběhlo úspěšně.', 'success');
+		$this->redirect('Login:login');
+
 
 	}
 
 
 
-	public function actionDashboard()
-	{
 
 
-
-	}
-
-	public function SignOut()
-	{
-
-
-
-
-	}
 
 
 
