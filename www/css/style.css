@@ -4,6 +4,14 @@
     padding: 0px;
     box-sizing: border-box;
     
-
 }
+
+#flash_messages {
+
+    text-align: center;
+    margin-top: 20px;
+    
+    
+    }
+    
 

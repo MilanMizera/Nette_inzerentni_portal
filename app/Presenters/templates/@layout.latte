@@ -31,6 +31,7 @@
   <link rel="stylesheet" href="{$basePath}/css/loginForm.css">
   <link rel="stylesheet" href="{$basePath}/css/header.css">
   <link rel="stylesheet" href="{$basePath}/css/footer.css">
+  <link rel="stylesheet" href="{$basePath}/css/userSettings.css">
 	
 </head>
 
@@ -64,17 +65,17 @@
     Nastavení<i class="bi bi-person-circle" id="private_persone_icon"></i>
   </button>
   <ul class="dropdown-menu">
-    <li><button class="dropdown-item" type="button">Osobní údaje</button></li>
-    <li><button class="dropdown-item" type="button">Vzor životopisů</button></li>
-    <li><button class="dropdown-item" type="button">Změna hesla</button></li>
+    <li><a  n:href="UserSettings:userSettings" class="dropdown-item" type="button">Osobní údaje</a></li>
+    <li><a class="dropdown-item" type="button">Vzor životopisů</a></li>
+    <li><a class="dropdown-item" type="button">Změna hesla</a></li>
   </ul>
 </div>
 {/if}
       <span class="navbar-text">
         {if $user->isLoggedIn()}
-          <a class="btn btn-warning" n:href="Login:signOut">Odhlásit</a>
+          <a class="btn btn-warning" id="btn_sign_out" n:href="Login:signOut">Odhlásit</a>
         {else}
-          <a class="btn btn-warning" n:href="Login:login">Přihlásit</a>
+          <a class="btn btn-warning" id="btn_sign_in" n:href="Login:login">Přihlásit</a>
         {/if}
       </span>
       
@@ -82,7 +83,7 @@
   </div>
 </nav>
 </header>
-	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+	<div id="flash_messages" n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
 	{include content}
 
@@ -141,7 +142,7 @@
           <!--Grid column-->
           <div class="col-auto">
             <p class="pt-2">
-              <strong>Sign up for our newsletter</strong>
+              <strong>Odebírejte nové pracovní nabídky:</strong>
             </p>
           </div>
           <!--Grid column-->
@@ -151,7 +152,7 @@
             <!-- Email input -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input type="email" id="form5Example24" class="form-control" />
-              <label class="form-label" for="form5Example24">Email address</label>
+              <label class="form-label" for="form5Example24">vzor@gmail.com</label>
             </div>
           </div>
           <!--Grid column-->
@@ -160,7 +161,7 @@
           <div class="col-auto">
             <!-- Submit button -->
             <button data-mdb-ripple-init type="submit" class="btn btn-outline mb-4">
-              Subscribe
+              Odebírat
             </button>
           </div>
           <!--Grid column-->
@@ -169,15 +170,7 @@
       </form>
     </section>
     <!-- Section: Form -->
-
-    <!-- Section: Text -->
-    <section class="mb-4">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam eum
-        harum corrupti dicta, aliquam sequi voluptate quas.
-      </p>
-    </section>
+    
     <!-- Section: Text -->
 
     <!-- Section: Links -->
@@ -275,9 +268,13 @@
   <!-- Grid container -->
 
   <!-- Copyright -->
-  <div class="text-center p-3" >
-    © 2020 Copyright:
-    
+  <div id="copyright_soc_icons_wrapper">
+    <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button">
+       <i class="fab fa-facebook-f"></i>
+    </a>
+    <div class="text-center p-3" >
+       © {date("Y")} Copyright. Všechna práva vyhrazena
+    </div>
   </div>
   <!-- Copyright -->
 </footer>

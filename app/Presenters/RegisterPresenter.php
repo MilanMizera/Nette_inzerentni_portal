@@ -41,8 +41,8 @@ class RegisterPresenter extends Nette\Application\UI\Presenter
 
 
 		$sex = [
-			'm' => 'muž',
-			'f' => 'žena',
+			'muž' => 'muž',
+			'žena' => 'žena',
 		];
 		$form->addRadioList('gender', 'Pohlaví:', $sex)
 			->setRequired('Zadejte prosím pohlaví');

@@ -18,9 +18,6 @@ class LoginPresenter extends Nette\Application\UI\Presenter
 	) {
 	}
 
-
-	
-
 	public function actionSignOut()
 	{
 
@@ -30,13 +27,6 @@ class LoginPresenter extends Nette\Application\UI\Presenter
 
 
 	}
-
-
-
-
-
-
-
 
 
 	protected function createComponentLoginForm(): Form
@@ -62,12 +52,10 @@ class LoginPresenter extends Nette\Application\UI\Presenter
 
 		} catch (Nette\Security\AuthenticationException $e) {
 
-            $this->flashMessage('Neplatné přihlašovací údaje', 'danger');
+			$this->flashMessage('Neplatné přihlašovací údaje', 'danger');
 			$this->redirect('Login:login');
 
 		}
-
-
 
 
 		$this->flashMessage('Byl jste úspěšně přihlášen.');
