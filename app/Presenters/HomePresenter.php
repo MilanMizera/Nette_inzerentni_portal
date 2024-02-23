@@ -21,4 +21,14 @@ final class HomePresenter extends Nette\Application\UI\Presenter
     
 
 
+public function renderDefault() {
+
+
+    $this->template->userName = $this->getUser()->getIdentity()->name;
+
+}
+
+
+
+
 }

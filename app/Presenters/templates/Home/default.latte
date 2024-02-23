@@ -1,4 +1,12 @@
 
 {block content}
 
+{if $user->isLoggedIn()}
+
+      <p id="home_main_title">{$userName}Vyhledejte si desítky skvělých pracovních nabídek, <br>která Vás mohou posunout vpřed !</p>
+
+{else}
+
 <p id="home_main_title">Vyhledejte si desítky skvělých pracovních nabídek, <br>která Vás mohou posunout vpřed !</p>
+
+{/if}

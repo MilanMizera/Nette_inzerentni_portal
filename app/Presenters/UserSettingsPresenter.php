@@ -27,27 +27,26 @@ class UserSettingsPresenter extends Nette\Application\UI\Presenter
     protected function createComponentUserSettingsForm(): Form
     {
 
-
-        $row = $this->database->table('users')
+        $user = $this->database->table('users')
             ->where('id', $this->getUser()->getIdentity()->getId())
             ->fetch();
 
 
         $form = new Form;
         $form->addText('name', 'Jméno:')
-            ->setDefaultValue($row->name);
+            ->setDefaultValue($user->name);
 
         $form->addText('surname', 'Příjmení:')
-            ->setDefaultValue($row->surname);
+            ->setDefaultValue($user->surname);
 
         $form->addText('gender', 'Pohlaví:')
             ->setDisabled()
-            ->setDefaultValue($row->gender);
+            ->setDefaultValue($user->gender);
 
 
         $form->addDate('birthday', 'narození:')
             ->setDisabled()
-            ->setDefaultValue($row->birthdays);
+            ->setDefaultValue($user->birthdays);
 
         $form->addPassword('oldPassword', 'Staré heslo:');
 
