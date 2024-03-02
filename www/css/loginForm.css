@@ -1,8 +1,64 @@
-.login_form_wrapper  {
+.login_form_wrapper {
 
-    height: 400px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    }
+}
+
+
+#frm-loginForm {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 50px;
+margin-left: 50px;
+
+
+}
+
+ #frm-loginForm-password {
+
+margin-top: 20px;
+margin-bottom: 20px;
+
+    
+}
+
+#frm-loginForm-password, #frm-loginForm-email {
+
+    width: 250px;
+    margin-left: 10px;
+
+
+} 
+
+.button {
+
+width: 100px;
+
+}
+
+
+
+.login_form_text_section {
+
+    background-color: rgb(252, 252, 255);
+    padding: 20px;
+    margin-top: 30px;
+}
+
+#login_text_center {
+
+text-align: center;
+margin-bottom: 10px !important;
+
+}
+
+#login_title {
+
+font-size: 25px;
+
+
+}

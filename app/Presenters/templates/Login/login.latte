@@ -3,8 +3,13 @@
 {block content}
 
 <div class="login_form_wrapper ">
+<p id="login_title">Přihlášení</p>
    {control loginForm}
-   <p>Nemáte vytvořený účet ? <a n:href="Register:register">Registrovat se</a> </p>
+   <div class="login_form_text_section ">
+     <p id="login_text_center">Nemáte vytvořený běžný účet ? <a n:href="Register:register">Registrovat se</a> </p>
+     <p id="login_text_center">nebo</p>
+     <p id="login_text_center">Chci se <a n:href="Register:register">registrovat jako firma </a></p>
+   </div>
 </div>
 
 

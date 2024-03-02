@@ -1,6 +1,6 @@
 <?php
 
-namespace App\model;
+namespace App\Model;
 
 use Nette;
 use Nette\Security\SimpleIdentity;
@@ -30,7 +30,12 @@ class MyAuthenticator implements Nette\Security\Authenticator
 		return new SimpleIdentity(
 			$user->id,
 			$user->role, // nebo pole více rolí
-			['name' => $user->name],
+			[
+				'name' => $user->name,
+				'email' => $user->email,
+			],
 		);
+
+		
 	}
 }

@@ -61,8 +61,8 @@
       </ul>
       {if $user->isLoggedIn()}
       <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Nastavení<i class="bi bi-person-circle" id="private_persone_icon"></i>
+  <button id="user_settings_button" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+   {$user->getIdentity()->email}<i class="bi bi-person-circle" id="private_persone_icon"></i>
   </button>
   <ul class="dropdown-menu">
     <li><a  n:href="UserSettings:userSettings" class="dropdown-item" type="button">Osobní údaje</a></li>
