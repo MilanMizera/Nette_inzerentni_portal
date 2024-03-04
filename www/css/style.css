@@ -14,4 +14,17 @@
     
     }
     
+    td, th {
 
+    
+        padding: 15px;
+
+
+    }
+
+    th {
+
+        padding-right: 0px;
+    }
+
+    

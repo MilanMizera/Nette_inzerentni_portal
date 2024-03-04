@@ -11,24 +11,10 @@ final class HomePresenter extends Nette\Application\UI\Presenter
 {
 
 
-    protected function startup()
+    public function renderDefault()
     {
-        parent::startup();
-        if (!$this->getUser()->isLoggedIn()) {
-            $this->redirect('Login:login');
-        }
+
+
+        $this->template->userName = $this->getUser()->getIdentity()->name;
     }
-    
-
-
-public function renderDefault() {
-
-
-    $this->template->userName = $this->getUser()->getIdentity()->name;
-
-}
-
-
-
-
 }

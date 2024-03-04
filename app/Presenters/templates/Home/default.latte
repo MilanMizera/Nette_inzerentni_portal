@@ -3,10 +3,114 @@
 
 {if $user->isLoggedIn()}
 
-      <p id="home_main_title">{$userName}Vyhledejte si desítky skvělých pracovních nabídek, <br>která Vás mohou posunout vpřed !</p>
+      <p class="home_main_title">{$userName} vyhledejte si desítky skvělých pracovních nabídek, <br><b>které Vás mohou posunout vpřed !</b></p>
 
 {else}
 
-<p id="home_main_title">Vyhledejte si desítky skvělých pracovních nabídek, <br>která Vás mohou posunout vpřed !</p>
+<p class="home_main_title">Vyhledejte si desítky skvělých pracovních nabídek, <br><b>které Vás mohou posunout vpřed !</b></p>
 
 {/if}
+
+
+<div class="job_filter_section">
+  <div class="job_filter_wrapper">
+      <h2>Vyberte město:</h2>
+      <select id="towns">
+            <option value="praha">Praha</option>
+            <option value="brno">Brno</option>
+            <option value="ostrava">Ostrava</option>
+      </select>
+
+      <button onclick="addTown()">Přidat město</button>
+
+      <div id="vstup-container">
+      <!-- Vstupní pole pro zobrazení vybraných měst -->
+      <div id="town_value"></div>
+      </div>
+   </div>
+
+<div class="job_filter_wrapper">
+      <h2>Vyberte profesi:</h2>
+      <select id="professions">
+            <option value="gastronomie">Gastronomie</option>
+            <option value="programování">Programování</option>
+            <option value="marketing">Marketing</option>
+      </select>
+
+      <button onclick="addProfession()">Přidat město</button>
+
+      <div id="vstup-container">
+      <!-- Vstupní pole pro zobrazení vybraných měst -->
+      <div id="profession_value"></div>
+      </div>
+</div>
+
+
+
+<div class="job_filter_wrapper">
+      <h2>Vyberte úvazek:</h2>
+            <select id="obligation">
+            <option value="praha">Plný</option>
+            <option value="brno">Zkrácený</option>
+            <option value="ostrava">IČO</option>
+      </select>
+
+      <button onclick="addObligation()">Přidat město</button>
+
+      <div id="vstup-container">
+      <!-- Vstupní pole pro zobrazení vybraných měst -->
+      <div id="obligation_value"></div>
+      </div>
+   </div>   
+
+</div>
+
+<div class="money_range_wrapper">
+<h2>Měsíční výplata</h2>
+
+<div id="customRangeContainer" onmousedown="startDragging()" onmousemove="drag(event)" onmouseup="stopDragging()">
+    <div id="customRangeThumb">0</div>
+</div>
+
+<p id="selectedValue">Výplata: - kč</p>
+
+</div>
+
+
+
+<script>
+    var dragging = false;
+
+    function startDragging() {
+        dragging = true;
+    }
+
+    function drag(event) {
+
+        if (dragging) {
+            var customRangeContainer = document.getElementById("customRangeContainer");
+            var customRangeThumb = document.getElementById("customRangeThumb");
+
+            var customRangeWidth = customRangeContainer.clientWidth - customRangeThumb.clientWidth;
+            var mouseX = event.clientX - customRangeContainer.getBoundingClientRect().left;
+
+            var percent = Math.min(1, Math.max(0, mouseX / customRangeWidth));
+            //toto je do kolika se má maximálně počítat
+            var value = Math.round(percent * 100000);
+//toto je jak velký rozptyl má mít
+            customRangeThumb.style.transform = "translateX(" + (percent * 1300) + "%)";
+            updateValue(value);
+        }
+    }
+
+    function stopDragging() {
+        dragging = false;
+    }
+
+    function updateValue(value) {
+        var selectedValue = document.getElementById("selectedValue");
+        selectedValue.textContent = "Výplata: " + value + " kč";
+    }
+</script>
+
+<script src="{$basePath}/javascript/home.js"></script>

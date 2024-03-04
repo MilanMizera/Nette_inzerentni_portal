@@ -38,40 +38,47 @@ class UserSettingsPresenter extends Nette\Application\UI\Presenter
 
         $form = new Form;
         $form->addText('name', 'Jméno:')
+            ->setHtmlAttribute('class', 'user_settings_input ')
             ->setDefaultValue($user->name);
 
         $form->addText('surname', 'Příjmení:')
+            ->setHtmlAttribute('class', 'user_settings_input ')
             ->setDefaultValue($user->surname);
 
         $form->addText('gender', 'Pohlaví:')
+            ->setHtmlAttribute('class', 'user_settings_input ')
             ->setDisabled()
             ->setDefaultValue($user->gender);
 
 
         $form->addDate('birthday', 'narození:')
+            ->setHtmlAttribute('class', 'user_settings_input ')
             ->setDisabled()
             ->setDefaultValue($user->birthdays);
 
-        $form->addPassword('oldPassword', 'Staré heslo:');
+        $form->addPassword('oldPassword', 'Staré heslo:')
+        ->setHtmlAttribute('class', 'user_settings_input ');
 
         $form->addPassword('new1Password', 'Nové heslo:')
+            ->setHtmlAttribute('class', 'user_settings_input ')
             ->addRule($form::MinLength, 'Heslo musí mít alespoň %d znaků', 8)
             ->addRule($form::Pattern, ' Heslo musí obsahovat číslici', '.*[0-9].*')
             ->addRule($form::Pattern, 'Heslo musí obsahovat velké písmeno', '.*[A-Z].*');
 
         $form->addPassword('new2Password', 'Nové heslo:')
+            ->setHtmlAttribute('class', 'user_settings_input ')
             ->addRule($form::MinLength, 'Heslo musí mít alespoň %d znaků', 8)
             ->addRule($form::Pattern, ' Heslo musí obsahovat číslici', '.*[0-9].*')
             ->addRule($form::Pattern, 'Heslo musí obsahovat velké písmeno', '.*[A-Z].*');
 
 
-        $form->addUpload('cv', 'životopis:')
+        $form->addUpload('cv', 'Životopis:')
+            ->setHtmlAttribute('class', 'user_settings_input ')
             ->addRule($form::MaxFileSize, 'Maximální velikost je 1 MB.', 1024 * 1024);
 
 
         $form->addSubmit('send', 'Odeslat')
-        ->setHtmlAttribute('id', 'btn_user_settings')
-        ;
+            ->setHtmlAttribute('class', 'btn_user_settings');
         $form->onSuccess[] = [$this, 'formSucceeded'];
         return $form;
     }

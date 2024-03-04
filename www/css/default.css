@@ -1,0 +1,70 @@
+
+.home_main_title {
+
+text-align: center;
+font-size: 25px;
+color: rgb(0, 0, 0);
+padding-top:50px ;
+padding-bottom: 10px;
+
+
+
+}
+
+
+
+
+.job_filter_section {
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+
+
+
+}
+
+
+.job_filter_wrapper {
+
+display: flex;
+flex-direction: column;
+margin-right: 30px;
+margin-bottom: 50px;
+
+
+
+}
+
+/*Tažník prašulí*/ 
+.money_range_wrapper {
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+}
+
+#customRangeContainer {
+    width: 700px;
+    height: 50px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+#customRangeThumb {
+    width: 50px;
+    height: 50px;
+    background-color: #007BFF;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    position: absolute;
+    transform: translateX(0);
+    transition: transform 0.2s ease-in-out;
+    user-select: none; /* Prevent text selection during drag */
+}
